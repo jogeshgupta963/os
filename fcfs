@@ -1,0 +1,12 @@
+int fcfs(vector<int> v,int head){
+    int distance = 0;
+    
+    for(auto track:v){
+        distance += abs ( head - track );
+        head = track;
+    }
+    return distance;
+}
+int main(){
+    cout<< fcfs({82,170,43,140,24,16,190},50);
+}
