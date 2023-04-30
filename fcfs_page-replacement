@@ -1,0 +1,33 @@
+
+bool searchQueue(queue<int> q,int key){
+    while(!q.empty()){
+        if(q.front() == key){
+            return true;
+        }
+        q.pop();
+    }
+    return false;
+}
+void fifo_pf(vector<int> v){
+    
+    queue<int> q;
+    
+    for(auto i:v){
+        bool present = searchQueue(q,i);
+        if(present){
+            cout<<i<<" HIT"<<endl;
+        }
+        else{
+            cout<<i<<" FAULT"<<endl;
+            if (q.size() == 3) q.pop();
+            q.push(i);
+        }
+    }
+        
+}
+
+
+int main(){
+    // cout<< fcfs({82,170,43,140,24,16,190},50);
+    fifo_pf({7,0,1,2,0,3,0,4,2,3,0,3,1,2,0});
+}
