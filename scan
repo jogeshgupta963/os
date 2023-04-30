@@ -1,0 +1,54 @@
+int scan (vector<int> v,int head,int dir, int lastTrack){
+    vector<int> left;
+    vector<int> right;
+    
+    for(int i:v){
+        if(i < head){
+            left.push_back(i);
+        }else{
+            right.push_back(i);
+        }
+    }
+    
+    sort(left.begin(),left.end());
+    sort(right.begin(),right.end());
+    
+    if(dir == 1){
+        int dis =   ( lastTrack - head ) + lastTrack - left[0] ;
+        return dis;
+    }
+    else{
+        int dis =  head + right[right.size() -1] ;
+        return dis;
+        
+    }
+}
+int cscan (vector<int> v,int head,int dir, int lastTrack){
+    vector<int> left;
+    vector<int> right;
+    
+    for(int i:v){
+        if(i < head){
+            left.push_back(i);
+        }else{
+            right.push_back(i);
+        }
+    }
+    
+    sort(left.begin(),left.end());
+    sort(right.begin(),right.end());
+    
+    if(dir == 1){
+        int dis =   ( lastTrack - head ) + lastTrack  + left[left.size()-1] ;
+        return dis;
+    }
+    else{
+        int dis =  head + lastTrack +  right[0] - lastTrack ;
+        return dis;
+        
+    }
+}
+
+int main(){
+    cout<< cscan({82,170,43,140,24,16,190},50,1,199);
+}
